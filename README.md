@@ -1,34 +1,83 @@
-<h1 align="center">Welcome to colegio-joao-pedro 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-</p>
+# 🏫 Colégio João Pedro - Landing Page Profissional
 
-> Landing Page institucional moderna desenvolvida com Next.js 14, TypeScript e Tailwind CSS.
+![Vercel Status](https://img.shields.io/badge/Vercel-Deployed-success?style=for-the-badge&logo=vercel)
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 
-## Install
-
-```sh
-npm install
-```
-
-## Usage
-
-```sh
-npm run start
-```
-
-## Author
-
-👤 **Maria Rodrigues**
-
-- Website: mulincodev.vercel.app
-- Github: [@mulinco](https://github.com/mulinco)
-- LinkedIn: [@mariaclararodrigues3113](https://linkedin.com/in/mariaclararodrigues3113)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
+Esta é uma Landing Page institucional de alto nível desenvolvida para o **Colégio João Pedro**, focada em converter visitantes em leads através de uma experiência visual impactante e performance otimizada.
 
 ---
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+## 📸 Preview do Projeto
+
+![Preview da Landing Page](public\images\preview-cjp.png)
+
+> **Status do Projeto:** Concluído e Otimizado para Performance 🚀
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router).
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/) (Strict Mode).
+- **Estilização:** [Tailwind CSS](https://tailwindcss.com/).
+- **Animações:** [GSAP](https://greensock.com/gsap/) (ScrollTrigger & useGSAP).
+- **Ícones:** [Lucide React](https://lucide.dev/).
+- **Validação de Formulários:** [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/).
+
+---
+
+## ✨ Funcionalidades e Diferenciais Técnicos
+
+- **Sticky Header Minimalista:** Navegação inteligente que se transforma em um menu compacto e transparente ao scrollar, utilizando efeito de vidro (_glassmorphism_).
+- **Hero Section Coreografada:** Animação de entrada orquestrada com GSAP, incluindo revelação de texto e composição dinâmica de imagens.
+- **Galeria Bento Grid (3x2):** Layout simétrico e responsivo com efeitos de zoom e overlays que reforçam a identidade visual.
+- **Captura de Leads:** Formulário com validação rigorosa, estados de carregamento (loading) e feedback visual de sucesso.
+- **Design System Consistente:** Implementação rigorosa das cores da marca e tipografia estratégica para legibilidade e impacto.
+
+---
+
+## 🎨 Design System & Identidade Visual
+
+O projeto foi desenvolvido com base no estudo de branding e identidade visual disponível no **Behance**:
+👉 [**Confira o projeto completo de Design aqui**](<https://www.behance.net/gallery/220066835/Colgio-Joao-Pedro-(Identidade-Visual)>)
+
+- **Cores Oficiais:**
+  - Azul Real: `#004aad` (Confiança e Tradição).
+  - Vermelho Vibrante: `#ff3b30` (Energia e Ação).
+- **Tipografia:**
+  - Principal: **Plus Jakarta Sans** (Leiturabilidade).
+  - Destaques: **Karantina** (Impacto Visual).
+
+---
+
+## 🏁 Como rodar o projeto
+
+1.  Clone o repositório:
+    ```bash
+    git clone [https://github.com/seu-usuario/colegio-joao-pedro.git](https://github.com/seu-usuario/colegio-joao-pedro.git)
+    ```
+2.  Instale as dependências:
+    ```bash
+    pnpm install
+    ```
+3.  Inicie o servidor de desenvolvimento:
+    ```bash
+    pnpm run dev
+    ```
+
+---
+
+## 👥 Créditos
+
+- **Desenvolvimento:** [Maria](https://github.com/mulinco) - Desenvolvedora Full Stack em formação.
+- **Design & Identidade Visual:** [Carol](<https://www.behance.net/gallery/220066835/Colgio-Joao-Pedro-(Identidade-Visual)>) - Designer Responsável pela concepção estética.
+
+---
+
+## 🗺️ Roadmap de Melhorias
+
+- [ ] Implementação de contadores animados para estatísticas do colégio.
+- [ ] Integração do formulário com serviço de e-mail ou banco de dados.
+- [ ] Botão flutuante de WhatsApp com animação de pulsação.
+- [ ] Página de "Obrigado" personalizada após o envio do lead.
