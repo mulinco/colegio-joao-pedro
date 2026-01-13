@@ -1,14 +1,60 @@
 "use client";
 
 import Image from "next/image";
+import FadeIn from "@/components/ui/FadeIn";
+
+const galleryItems = [
+  {
+    title: "Biblioteca Interativa",
+    category: "Conhecimento",
+    image:
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&auto=format&fit=crop",
+    color: "bg-[#004aad]",
+  },
+  {
+    title: "Quadra Poliesportiva",
+    category: "Esportes",
+    image:
+      "https://images.unsplash.com/photo-1544999214-cb3cb61e8499?q=80&w=1170&auto=format&fit=crop",
+    color: "bg-[#ff3b30]",
+  },
+  {
+    title: "Laboratório Maker",
+    category: "Inovação",
+    image:
+      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop",
+    color: "bg-[#004aad]",
+  },
+  {
+    title: "Ateliê de Artes",
+    category: "Criatividade",
+    image:
+      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1171&auto=format&fit=crop",
+    color: "bg-[#ff3b30]",
+  },
+  {
+    title: "Espaço Nutrição",
+    category: "Saúde",
+    image:
+      "https://images.unsplash.com/photo-1588075592765-2feb7de1f86d?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    color: "bg-[#004aad]",
+  },
+  {
+    title: "Área de Convivência",
+    category: "Social",
+    image:
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop",
+    color: "bg-[#ff3b30]",
+  },
+];
 
 export function Gallery() {
   return (
     <section
       id="galeria"
-      className="relative w-full overflow-hidden bg-[#fffdf5] py-20"
+      className="relative w-full overflow-hidden bg-[#fffdf5] py-24 md:py-32"
     >
-      {/* Background Pattern suave */}
+      {/* Pattern de fundo suave */}
       <div
         className="absolute top-0 h-full w-full opacity-5"
         style={{
@@ -18,77 +64,54 @@ export function Gallery() {
       />
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="mb-12 flex flex-col items-center text-center">
-          <span className="mb-2 font-bold text-[#ff3b30]">NOSSO ESPAÇO</span>
-          <h2 className="text-4xl font-black uppercase leading-tight text-[#004aad] md:text-5xl">
-            Um ambiente para <br className="hidden md:block" />
-            <span className="text-[#ff3b30]">criar memórias</span>
-          </h2>
-        </div>
-
-        {/* GRID DE IMAGENS */}
-        <div className="grid h-auto grid-cols-1 gap-4 md:h-[600px] md:grid-cols-4 md:grid-rows-2">
-          {/* 1. Biblioteca (Grande) */}
-          <div className="group relative min-h-[300px] overflow-hidden rounded-3xl bg-slate-200 md:col-span-2 md:row-span-2">
-            <Image
-              src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1000&auto=format&fit=crop"
-              alt="Biblioteca escolar moderna com estantes de livros"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-            <div className="absolute bottom-6 left-6 rounded-xl bg-white/90 px-4 py-2 font-bold text-[#004aad] shadow-lg backdrop-blur-md">
-              Biblioteca Interativa
-            </div>
+        {/* Título com Animação */}
+        <FadeIn direction="up" distance={40}>
+          <div className="mb-16 flex flex-col items-center text-center">
+            <span className="mb-3 text-sm font-bold uppercase tracking-widest text-[#ff3b30]">
+              Nosso Espaço
+            </span>
+            <h2 className="text-5xl font-black uppercase leading-none text-[#004aad] md:text-6xl lg:text-7xl">
+              Um ambiente para <br />
+              <span className="text-[#ff3b30]">criar memórias</span>
+            </h2>
           </div>
+        </FadeIn>
 
-          {/* 2. Quadra (Pequena) - CORRIGIDO */}
-          <div className="group relative min-h-[200px] overflow-hidden rounded-3xl bg-slate-200 md:col-span-1 md:row-span-1">
-            <Image
-              src="https://images.unsplash.com/photo-1544999214-cb3cb61e8499?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Quadra de Esportes"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+        {/* Grid 3x2 Harmonizado */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {galleryItems.map((item, index) => (
+            <FadeIn
+              key={index}
+              direction="up"
+              delay={0.1 * index}
+              distance={50}
+            >
+              <div className="group relative h-[400px] w-full overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-xl transition-all duration-500 hover:shadow-2xl">
+                {/* Imagem com efeito de zoom no hover */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
 
-            {/* Sombra para destaque */}
-            <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/30" />
+                {/* Overlay de gradiente que muda de cor no hover */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90`}
+                />
 
-            {/* Label agora visível em TODOS os tamanhos e com fundo branco */}
-            <div className="absolute bottom-4 left-4 rounded-xl bg-white/90 px-3 py-1.5 text-sm font-bold text-[#004aad] shadow-lg backdrop-blur-md">
-              Quadra Poliesportiva
-            </div>
-          </div>
-
-          {/* 3. Laboratório (Pequeno) - CORRIGIDO */}
-          <div className="group relative min-h-[200px] overflow-hidden rounded-3xl bg-slate-200 md:col-span-1 md:row-span-1">
-            <Image
-              src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop"
-              alt="Laboratório de Ciências com equipamentos"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/30" />
-
-            {/* Label visível em todas as telas com estilo padrão */}
-            <div className="absolute bottom-4 left-4 rounded-xl bg-white/90 px-3 py-1.5 text-sm font-bold text-[#004aad] shadow-lg backdrop-blur-md">
-              Laboratório
-            </div>
-          </div>
-
-          {/* 4. Área de Convivência (Larga) */}
-          <div className="group relative min-h-[200px] overflow-hidden rounded-3xl bg-slate-200 md:col-span-2 md:row-span-1">
-            <Image
-              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-              alt="Crianças estudando ao ar livre"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-            <div className="absolute bottom-6 left-6 rounded-xl bg-white/90 px-4 py-2 font-bold text-[#004aad] shadow-lg backdrop-blur-md">
-              Área de Convivência
-            </div>
-          </div>
+                {/* Conteúdo do Card */}
+                <div className="absolute bottom-8 left-8">
+                  <span className="mb-2 block translate-y-4 transform text-xs font-bold uppercase tracking-widest text-[#ff3b30] opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    {item.category}
+                  </span>
+                  <h3 className="text-2xl font-black text-white md:text-3xl">
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
