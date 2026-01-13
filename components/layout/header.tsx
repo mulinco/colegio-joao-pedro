@@ -10,9 +10,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Refs para animar o menu e os links
-  const menuRef = useRef(null);
-  const linksRef = useRef([]);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const linksRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,17 +21,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Animação de entrada do menu mobile usando GSAP
   useGSAP(() => {
     if (isMobileMenuOpen) {
-      // 1. O container do menu desliza e ganha opacidade
       gsap.fromTo(
         menuRef.current,
         { y: -20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }
       );
 
-      // 2. Os links entram um por um (Stagger)
       gsap.fromTo(
         linksRef.current,
         { x: -20, opacity: 0 },
@@ -48,8 +44,8 @@ export function Header() {
     }
   }, [isMobileMenuOpen]);
 
-  // Função para adicionar refs aos links dinamicamente
-  const addToRefs = (el) => {
+  // Função tipada corretamente para o TypeScript
+  const addToRefs = (el: HTMLElement | null) => {
     if (el && !linksRef.current.includes(el)) {
       linksRef.current.push(el);
     }
@@ -71,7 +67,6 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        {/* LOGO */}
         <Link
           href="/"
           className="flex items-center gap-2 text-2xl font-black tracking-tighter text-[#004aad]"
@@ -86,7 +81,6 @@ export function Header() {
           </span>
         </Link>
 
-        {/* MENU DESKTOP */}
         <nav
           className={`hidden items-center gap-8 transition-all duration-500 ${isScrolled ? "pointer-events-none -translate-y-2 opacity-0" : "translate-y-0 opacity-100 md:flex"}`}
         >
@@ -104,19 +98,17 @@ export function Header() {
           </button>
         </nav>
 
-        {/* BOTÃO HAMBURGUER */}
         <button
           className={`rounded-lg p-2 text-[#004aad] transition-all duration-300 hover:bg-white/20 ${isScrolled ? "block" : "md:hidden"}`}
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
-            if (!isMobileMenuOpen) linksRef.current = []; // Reseta as refs ao abrir
+            if (!isMobileMenuOpen) linksRef.current = [];
           }}
         >
           {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
 
-      {/* MENU MOBILE / COMPACTO COM GSAP */}
       {isMobileMenuOpen && (
         <div
           ref={menuRef}
@@ -126,6 +118,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
+              /* @ts-expect-error - O Link do Next.js às vezes gera conflito de tipos com refs do GSAP */
               ref={addToRefs}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block border-b border-gray-100 py-4 text-xl font-bold text-gray-800 transition-colors hover:text-[#004aad]"
