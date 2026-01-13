@@ -118,7 +118,6 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              /* @ts-expect-error - O Link do Next.js às vezes gera conflito de tipos com refs do GSAP */
               ref={addToRefs}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block border-b border-gray-100 py-4 text-xl font-bold text-gray-800 transition-colors hover:text-[#004aad]"
