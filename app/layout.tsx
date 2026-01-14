@@ -3,6 +3,7 @@ import { Karantina, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         {children}
         <Header />
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>
