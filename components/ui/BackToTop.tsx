@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
-  // ESTA É A LINHA QUE ESTAVA FALTANDO OU NO LUGAR ERRADO:
   const [isOverFooter, setIsOverFooter] = useState(false);
 
   useEffect(() => {
@@ -49,7 +48,6 @@ export default function BackToTop() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           onClick={scrollToTop}
-          // Alinhamento exato com o seu WhatsAppButton (right-6, w-16, h-16)
           className={`fixed bottom-[112px] right-6 z-[100] flex h-16 w-16 items-center justify-center rounded-full border border-white/20 shadow-xl backdrop-blur-md transition-all hover:scale-110 active:scale-95 ${
             isOverFooter
               ? "bg-[#004aad]/40 text-white"
