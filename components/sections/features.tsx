@@ -85,7 +85,7 @@ export function Features() {
               href="/diferenciais"
               className="rounded-full bg-[#ff3b30] px-8 py-4 font-bold text-white shadow-lg transition-all hover:bg-[#d92b22] hover:shadow-red-200 active:scale-95"
             >
-              Saiba Mais sobre nossos Diferenciais
+              Veja nossos Diferenciais
             </Link>
           </div>
         </FadeIn>
