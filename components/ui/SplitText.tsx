@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -17,25 +17,26 @@ export default function SplitText({
 }: SplitTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const words = text.split(" ");
+
   useGSAP(
     () => {
       if (!containerRef.current) return;
 
-      // Seleciona todas as letras (spans) dentro do container
-      const chars = containerRef.current.querySelectorAll(".char");
+      const wordSpans = containerRef.current.querySelectorAll(".word");
 
       gsap.fromTo(
-        chars,
+        wordSpans,
         {
           opacity: 0,
-          y: 20,
+          y: 24,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          stagger: 0.03,
-          delay: delay / 1000, // converte ms para segundos
+          stagger: 0.08,
+          delay: delay / 1000,
           ease: "power3.out",
         }
       );
@@ -45,13 +46,13 @@ export default function SplitText({
 
   return (
     <div ref={containerRef} className={`inline-block ${className}`}>
-      {text.split("").map((char, index) => (
+      {words.map((word, index) => (
         <span
           key={index}
-          className="char inline-block"
-          style={{ opacity: 0, whiteSpace: char === " " ? "pre" : "normal" }}
+          className="word mr-2 inline-block whitespace-nowrap"
+          style={{ opacity: 0 }}
         >
-          {char}
+          {word}
         </span>
       ))}
     </div>
