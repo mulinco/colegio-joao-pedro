@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import SplitText from "@/components/ui/SplitText";
 import FadeIn from "@/components/ui/FadeIn";
 
@@ -39,12 +40,21 @@ export function Hero() {
 
         <FadeIn direction="up" delay={1.0}>
           <div className="flex w-full flex-col gap-4 md:w-auto md:flex-row">
-            <button className="h-12 w-full rounded-full bg-[#ff3b30] px-8 text-lg font-medium text-white transition-all hover:bg-[#d92b22] hover:shadow-lg md:w-auto">
+            {/* Botão de Agendamento: Link para âncora de contato na Home */}
+            <Link
+              href="/#contato"
+              className="flex h-12 w-full items-center justify-center rounded-full bg-[#ff3b30] px-8 text-lg font-bold text-white transition-all hover:bg-[#d92b22] hover:shadow-lg active:scale-95 md:w-auto"
+            >
               Agendar Visita
-            </button>
-            <button className="h-12 w-full rounded-full border border-[#004aad] px-6 font-medium text-[#004aad] transition-all hover:bg-blue-50 md:w-auto">
+            </Link>
+
+            {/* Botão de Conhecer: Link para a página de Proposta Pedagógica */}
+            <Link
+              href="/proposta"
+              className="flex h-12 w-full items-center justify-center rounded-full border border-[#004aad] px-8 font-bold text-[#004aad] transition-all hover:bg-blue-50 active:scale-95 md:w-auto"
+            >
               Conhecer a Escola
-            </button>
+            </Link>
           </div>
         </FadeIn>
       </div>
