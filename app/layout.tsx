@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/header";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import BackToTop from "@/components/ui/BackToTop";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
         <Header />
         <WhatsAppButton />
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
