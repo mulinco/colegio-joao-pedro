@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn"; // Importando o componente
 
 export function About() {
@@ -61,12 +62,15 @@ export function About() {
 
           <FadeIn direction="up" delay={0.8}>
             <div className="pt-4">
-              <button className="group flex items-center gap-2 text-lg font-bold text-[#004aad] transition-colors hover:text-[#ff3b30]">
+              <Link
+                href="/proposta"
+                className="group inline-flex items-center gap-2 text-lg font-bold text-[#004aad] transition-colors hover:text-[#ff3b30]"
+              >
                 Conheça nossa proposta pedagógica
                 <span className="transform transition-transform group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
             </div>
           </FadeIn>
         </div>

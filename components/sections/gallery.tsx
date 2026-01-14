@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
 
 const galleryItems = [
@@ -112,6 +114,15 @@ export function Gallery() {
               </div>
             </FadeIn>
           ))}
+        </div>
+        <div className="mt-10 text-center"></div>
+        <div className="mt-12 text-center">
+          <Link
+            href="/estrutura"
+            className="rounded-full border-2 border-[#004aad] px-8 py-4 font-bold text-[#004aad] transition-all hover:bg-[#004aad] hover:text-white active:scale-95"
+          >
+            Ver Galeria Completa
+          </Link>
         </div>
       </div>
     </section>

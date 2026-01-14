@@ -9,19 +9,25 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import FadeIn from "@/components/ui/FadeIn"; // Importando sua animação manual
+import FadeIn from "@/components/ui/FadeIn";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Mapeamento dos links institucionais para as rotas reais
+  const institucionais = [
+    { name: "Sobre Nós", href: "/#sobre" },
+    { name: "Proposta Pedagógica", href: "/proposta" },
+    { name: "Estrutura", href: "/estrutura" },
+    { name: "Diferenciais", href: "/diferenciais" },
+    { name: "Perguntas Frequentes (FAQ)", href: "/faq" },
+  ];
+
   return (
-    /* Trava do Azul oficial (#004aad) para emendar perfeitamente com o LeadForm.
-       Adicionamos 'overflow-hidden' para evitar barras de rolagem durante a animação.
-    */
     <footer className="overflow-hidden bg-[#004aad] pt-16 text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Coluna 1: Logo e Social - Entrada inicial */}
+          {/* Coluna 1: Logo e Social */}
           <FadeIn direction="up" delay={0.1} distance={30}>
             <div className="space-y-4">
               <h3 className="font-display text-3xl font-bold uppercase tracking-wide">
@@ -49,26 +55,20 @@ export function Footer() {
             </div>
           </FadeIn>
 
-          {/* Coluna 2: Institucional - Pequeno atraso */}
+          {/* Coluna 2: Institucional - Links Atualizados */}
           <FadeIn direction="up" delay={0.2} distance={30}>
             <div>
               <h4 className="mb-6 text-lg font-bold text-[#ff3b30]">
                 Institucional
               </h4>
               <ul className="space-y-3 text-sm text-blue-100/80">
-                {[
-                  "Sobre Nós",
-                  "Proposta Pedagógica",
-                  "Estrutura",
-                  "Blog",
-                  "Trabalhe Conosco",
-                ].map((item) => (
-                  <li key={item}>
+                {institucionais.map((item) => (
+                  <li key={item.name}>
                     <Link
-                      href="#"
+                      href={item.href}
                       className="transition-colors hover:text-white"
                     >
-                      {item}
+                      {item.name}
                     </Link>
                   </li>
                 ))}
@@ -76,7 +76,7 @@ export function Footer() {
             </div>
           </FadeIn>
 
-          {/* Coluna 3: Segmentos - Médio atraso */}
+          {/* Coluna 3: Segmentos */}
           <FadeIn direction="up" delay={0.3} distance={30}>
             <div>
               <h4 className="mb-6 text-lg font-bold text-[#ff3b30]">
@@ -92,7 +92,7 @@ export function Footer() {
                 ].map((item) => (
                   <li key={item}>
                     <Link
-                      href="#"
+                      href="/proposta"
                       className="transition-colors hover:text-white"
                     >
                       {item}
@@ -103,7 +103,7 @@ export function Footer() {
             </div>
           </FadeIn>
 
-          {/* Coluna 4: Contato - Último atraso das colunas */}
+          {/* Coluna 4: Contato */}
           <FadeIn direction="up" delay={0.4} distance={30}>
             <div>
               <h4 className="mb-6 text-lg font-bold text-[#ff3b30]">Contato</h4>
@@ -129,7 +129,7 @@ export function Footer() {
           </FadeIn>
         </div>
 
-        {/* Barra de Direitos Autorais - Entrada suave final */}
+        {/* Barra de Direitos Autorais */}
         <FadeIn direction="up" delay={0.6} distance={20}>
           <div className="mt-16 border-t border-white/10 py-8 text-center text-sm text-blue-100/60">
             <p>

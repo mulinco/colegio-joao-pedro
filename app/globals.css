@@ -6,3 +6,31 @@
 html {
   scroll-behavior: smooth;
 }
+/* Estilização da Scrollbar para Chrome, Safari e Edge */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Fundo da barra (Track) - usamos o tom creme suave do site */
+::-webkit-scrollbar-track {
+  background: #fffcf5;
+}
+
+/* A barrinha que desliza (Thumb) - Azul do Colégio */
+::-webkit-scrollbar-thumb {
+  background-color: #004aad;
+  border-radius: 20px;
+  /* Cria uma borda ao redor da thumb para parecer mais fina e elegante */
+  border: 3px solid #fffcf5;
+}
+
+/* Cor ao passar o mouse - Vermelho do Colégio */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff3b30;
+}
+
+/* Suporte para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #004aad #fffcf5;
+}

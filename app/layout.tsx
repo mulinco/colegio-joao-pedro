@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Karantina, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${karantina.variable} ${jakarta.variable} bg-background font-body text-primary antialiased`}
       >
         {children}
+        <ScrollProgress />
         <Header />
         <WhatsAppButton />
         <Footer />

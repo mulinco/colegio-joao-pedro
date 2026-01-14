@@ -1,137 +1,130 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+import { motion, AnimatePresence } from "framer-motion";
+import FlowingMenu from "@/components/ui/FlowingMenu";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const pathname = usePathname();
 
-  const menuRef = useRef<HTMLDivElement>(null);
-  const linksRef = useRef<(HTMLElement | null)[]>([]);
+  const isHome = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useGSAP(() => {
-    if (isMobileMenuOpen) {
-      gsap.fromTo(
-        menuRef.current,
-        { y: -20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }
-      );
-
-      gsap.fromTo(
-        linksRef.current,
-        { x: -20, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.3,
-          stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.1,
-        }
-      );
-    }
-  }, [isMobileMenuOpen]);
-
-  // Função tipada corretamente para o TypeScript
-  const addToRefs = (el: HTMLElement | null) => {
-    if (el && !linksRef.current.includes(el)) {
-      linksRef.current.push(el);
-    }
-  };
-
   const menuItems = [
-    { name: "A Escola", href: "#sobre" },
-    { name: "Diferenciais", href: "#features" },
-    { name: "Estrutura", href: "#galeria" },
-    { name: "Contato", href: "#contato" },
+    { text: "A Escola", link: isHome ? "#sobre" : "/#sobre" },
+    { text: "Proposta", link: "/proposta" },
+    { text: "Diferenciais", link: "/diferenciais" },
+    { text: "Dúvidas", link: "/faq" },
   ];
 
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "border-b border-white/10 bg-white/10 py-3 shadow-lg backdrop-blur-xl"
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="container mx-auto flex items-center justify-between px-4">
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-2xl font-black tracking-tighter text-[#004aad]"
-        >
-          <span className="rounded bg-[#004aad] px-2 py-1 text-white shadow-xl">
+    <header className="fixed inset-x-0 top-0 z-[100] flex justify-center p-6 transition-all duration-500">
+      {/* Container Flutuante estilo 'Pill' */}
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className={`relative flex items-center gap-2 rounded-full border px-3 py-2 transition-all duration-500 ${
+          isScrolled
+            ? "border-gray-200 bg-white/70 shadow-2xl backdrop-blur-xl"
+            : "border-transparent bg-transparent"
+        }`}
+      >
+        {/* LOGO COMPACTA */}
+        <Link href="/" className="flex items-center gap-2 px-3 py-1">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#004aad] text-[10px] font-black text-white shadow-lg">
             CJP
           </span>
-          <span
-            className={`overflow-hidden whitespace-nowrap transition-all duration-500 ease-in-out ${isScrolled ? "max-w-0 opacity-0" : "max-w-[300px] opacity-100"}`}
-          >
-            Colégio João Pedro
-          </span>
+          {!isScrolled && (
+            <span className="hidden text-sm font-black tracking-tighter text-[#004aad] md:block">
+              João Pedro
+            </span>
+          )}
         </Link>
 
-        <nav
-          className={`hidden items-center gap-8 transition-all duration-500 ${isScrolled ? "pointer-events-none -translate-y-2 opacity-0" : "translate-y-0 opacity-100 md:flex"}`}
-        >
+        {/* NAVEGAÇÃO DESKTOP COM INDICADOR DESLIZANTE */}
+        <div className="hidden items-center gap-1 md:flex">
           {menuItems.map((item) => (
             <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-bold text-gray-700 transition-colors hover:text-[#ff3b30]"
+              key={item.text}
+              href={item.link}
+              onMouseEnter={() => setHoveredLink(item.text)}
+              onMouseLeave={() => setHoveredLink(null)}
+              className="relative px-4 py-2 text-xs font-bold uppercase tracking-widest text-gray-600 transition-colors hover:text-[#004aad]"
             >
-              {item.name}
+              {item.text}
+              {/* Indicador Animado (Background Pill) */}
+              {hoveredLink === item.text && (
+                <motion.div
+                  layoutId="nav-pill"
+                  className="absolute inset-0 z-[-1] rounded-full bg-[#004aad]/5"
+                  transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                />
+              )}
             </Link>
           ))}
-          <button className="rounded-full bg-[#004aad] px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-blue-800 active:scale-95">
-            Portal do Aluno
-          </button>
-        </nav>
-
-        <button
-          className={`rounded-lg p-2 text-[#004aad] transition-all duration-300 hover:bg-white/20 ${isScrolled ? "block" : "md:hidden"}`}
-          onClick={() => {
-            setIsMobileMenuOpen(!isMobileMenuOpen);
-            if (!isMobileMenuOpen) linksRef.current = [];
-          }}
-        >
-          {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-        </button>
-      </div>
-
-      {isMobileMenuOpen && (
-        <div
-          ref={menuRef}
-          className="absolute left-0 right-0 top-full flex flex-col gap-2 border-t border-white/20 bg-white/95 p-6 shadow-2xl backdrop-blur-2xl"
-        >
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              ref={addToRefs}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block border-b border-gray-100 py-4 text-xl font-bold text-gray-800 transition-colors hover:text-[#004aad]"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <div ref={addToRefs}>
-            <button className="mt-4 w-full rounded-xl bg-[#004aad] py-4 text-lg font-bold text-white shadow-lg transition-transform active:scale-95">
-              Portal do Aluno
-            </button>
-          </div>
         </div>
-      )}
+
+        <div className="flex items-center gap-2 pl-2">
+          <Link
+            href="/#contato"
+            className="rounded-full bg-[#ff3b30] px-5 py-2 text-[10px] font-black uppercase tracking-widest text-white shadow-lg transition-all hover:scale-105 active:scale-95"
+          >
+            Matrículas
+          </Link>
+
+          {/* BOTÃO MENU MOBILE */}
+          <button
+            className="rounded-full p-2 text-[#004aad] hover:bg-gray-100 md:hidden"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <Menu size={20} />
+          </button>
+        </div>
+      </motion.nav>
+
+      {/* MENU MOBILE (FlowingMenu) */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[110]"
+          >
+            <FlowingMenu
+              items={menuItems.map((i) => ({
+                ...i,
+                image:
+                  "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop",
+              }))}
+              onItemClick={() => setIsMobileMenuOpen(false)}
+              speed={20}
+              textColor="#004aad"
+              marqueeTextColor="#fff"
+              marqueeBgColor="#ff3b30"
+              bgColor="#fff"
+              borderColor="#eee"
+            />
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute right-8 top-8 z-[120] rounded-full bg-[#ff3b30] p-4 text-white shadow-2xl"
+            >
+              <X size={32} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
