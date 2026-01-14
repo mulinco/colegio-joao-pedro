@@ -5,6 +5,7 @@
 /* Regra para rolagem suave em todo o site */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 /* Estilização da Scrollbar para Chrome, Safari e Edge */
 ::-webkit-scrollbar {

@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${karantina.variable} ${jakarta.variable} bg-background font-body text-primary antialiased`}
+        className={`${karantina.variable} ${jakarta.variable} overflow-x-hidden bg-background font-body text-primary antialiased md:overflow-x-visible`}
       >
         {children}
         <ScrollProgress />

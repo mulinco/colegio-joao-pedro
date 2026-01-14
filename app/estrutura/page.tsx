@@ -72,9 +72,10 @@ export default function EstruturaPage() {
               Ambientes de Aprendizado
             </span>
           </FadeIn>
-          <h1 className="mb-6 text-5xl font-black text-[#004aad] md:text-7xl">
+          <h1 className="mb-6 text-[clamp(2.5rem,8vw,4.5rem)] font-black text-[#004aad]">
             <SplitText text="INFRAESTRUTURA" />
           </h1>
+
           <FadeIn delay={0.5}>
             <p className="mx-auto max-w-2xl text-lg text-gray-600">
               Espaços modernos planejados para estimular a criatividade, a
