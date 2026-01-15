@@ -6,6 +6,7 @@ import SplitText from "@/components/ui/SplitText";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Microscope, Trophy, BookOpen, Coffee } from "lucide-react";
+import { CLIENT_CONFIG } from "@/constants/config";
 
 // Definição das categorias e fotos
 const CATEGORIES = [

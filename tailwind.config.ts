@@ -1,31 +1,26 @@
 import type { Config } from "tailwindcss";
+// @ts-expect-error - Necessário para importar .tsx no tailwind.config
+import { CLIENT_CONFIG } from "./src/constants/config.tsx";
 
 const config: Config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        background: "#fff4d7", // Creme
-        primary: {
-          DEFAULT: "#005eb3", // Azul
-          light: "#187ad3",
-          lighter: "#2091e5",
-        },
-        accent: {
-          DEFAULT: "#ff201e", // Vermelho
-          light: "#ff4848",
-        },
+        background: CLIENT_CONFIG.colors.background,
+        primary: CLIENT_CONFIG.colors.primary,
+        accent: CLIENT_CONFIG.colors.accent,
       },
       fontFamily: {
-        // Simplificado: usa a fonte do Google ou a padrão do sistema
-        display: ["var(--font-karantina)", "sans-serif"],
-        body: ["var(--font-jakarta)", "sans-serif"],
+        display: [CLIENT_CONFIG.fonts.display, "sans-serif"],
+        body: [CLIENT_CONFIG.fonts.body, "sans-serif"],
       },
     },
   },
   plugins: [],
 };
+
 export default config;

@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CounterItem } from "@/components/ui/CounterItem";
 import { FlaskConical, Cpu, Globe, Sprout } from "lucide-react";
+import { CLIENT_CONFIG } from "@/constants/config";
 
 export default function PropostaPage() {
   const pilares = [

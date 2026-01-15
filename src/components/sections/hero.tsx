@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitText from "@/components/ui/SplitText";
 import FadeIn from "@/components/ui/FadeIn";
+import { CLIENT_CONFIG } from "@/constants/config";
 
 export function Hero() {
   const today = new Date();
@@ -78,8 +79,8 @@ export function Hero() {
           className="relative z-10 h-[85%] w-full overflow-hidden rounded-[2.5rem] border-[6px] border-white bg-white shadow-xl"
         >
           <Image
-            src="https://images.unsplash.com/photo-1674049406486-4b1f6e1845fd?q=80&w=2070&auto=format&fit=crop"
-            alt="Aluno estudando"
+            src={CLIENT_CONFIG.assets.hero} 
+            alt={`Destaque do ${CLIENT_CONFIG.name}`}
             fill
             className="object-cover"
             priority
