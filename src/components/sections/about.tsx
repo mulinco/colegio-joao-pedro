@@ -26,7 +26,7 @@ export function About() {
               <span className="text-sm font-bold uppercase tracking-wider text-[#ff3b30]">
                 Nossa Essência
               </span>
-              <h2 className="mt-2 text-5xl font-black tracking-tight text-[#004aad] md:text-6xl">
+              <h2 className="mt-2 font-display text-5xl font-black tracking-tight text-[#004aad] md:text-6xl">
                 SOBRE NÓS
               </h2>
             </div>

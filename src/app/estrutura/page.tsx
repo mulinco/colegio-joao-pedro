@@ -74,7 +74,7 @@ export default function EstruturaPage() {
               Ambientes de Aprendizado
             </span>
           </FadeIn>
-          <h1 className="mb-6 text-[clamp(2.5rem,8vw,4.5rem)] font-black text-[#004aad]">
+          <h1 className="mb-6 font-display text-[clamp(2.5rem,8vw,4.5rem)] font-black text-[#004aad]">
             <SplitText text="INFRAESTRUTURA" />
           </h1>
 
@@ -138,7 +138,9 @@ export default function EstruturaPage() {
                       {item.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                  <h3 className="font-display text-xl font-bold text-white">
+                    {item.title}
+                  </h3>
                 </div>
               </div>
             </FadeIn>

@@ -23,11 +23,11 @@ export function Hero() {
         <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">
           <SplitText
             text="CRIANDO UM MUNDO"
-            className="font-karantina block text-[#004aad]"
+            className="block font-display text-[#004aad]"
           />
           <SplitText
             text="DE POSSIBILIDADES"
-            className="font-karantina block text-[#ff3b30]"
+            className="block font-body text-[#ff3b30]"
             delay={500}
           />
         </h1>
@@ -79,7 +79,7 @@ export function Hero() {
           className="relative z-10 h-[85%] w-full overflow-hidden rounded-[2.5rem] border-[6px] border-white bg-white shadow-xl"
         >
           <Image
-            src={CLIENT_CONFIG.assets.hero} 
+            src={CLIENT_CONFIG.assets.hero}
             alt={`Destaque do ${CLIENT_CONFIG.name}`}
             fill
             className="object-cover"

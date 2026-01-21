@@ -72,7 +72,7 @@ export function Gallery() {
             <span className="mb-3 text-sm font-bold uppercase tracking-widest text-[#ff3b30]">
               Nosso Espaço
             </span>
-            <h2 className="text-5xl font-black uppercase leading-none text-[#004aad] md:text-6xl lg:text-7xl">
+            <h2 className="font-display text-5xl font-black uppercase leading-none text-[#004aad] md:text-6xl lg:text-7xl">
               Um ambiente para <br />
               <span className="text-[#ff3b30]">criar memórias</span>
             </h2>

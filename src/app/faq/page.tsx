@@ -52,7 +52,7 @@ export default function FAQPage() {
               Dúvidas Comuns
             </span>
           </FadeIn>
-          <h1 className="mb-6 text-5xl font-black text-[#004aad] md:text-6xl">
+          <h1 className="mb-6 font-display text-5xl font-black text-[#004aad] md:text-6xl">
             <SplitText text="FAQ" />
           </h1>
           <FadeIn delay={0.5}>

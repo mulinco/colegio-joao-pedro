@@ -46,7 +46,7 @@ export default function PropostaPage() {
               Nossa Essência
             </span>
           </FadeIn>
-          <h1 className="mb-6 text-5xl font-black text-[#004aad] md:text-7xl">
+          <h1 className="mb-6 font-display text-5xl font-black text-[#004aad] md:text-7xl">
             <SplitText text="PROPOSTA" />{" "}
             <span className="whitespace-nowrap">
               <SplitText text="PEDAGÓGICA" />
@@ -69,7 +69,7 @@ export default function PropostaPage() {
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#ff3b30]/5">
                   {pilar.icon}
                 </div>
-                <h3 className="mb-4 text-xl font-bold text-[#004aad]">
+                <h3 className="mb-4 font-display text-xl font-bold text-[#004aad]">
                   {pilar.title}
                 </h3>
                 <p className="leading-relaxed text-gray-600">{pilar.desc}</p>
@@ -158,7 +158,7 @@ export default function PropostaPage() {
             {/* EDUCAÇÃO INFANTIL */}
             <FadeIn delay={0.2}>
               <div className="group rounded-[2.5rem] border border-gray-50 bg-white p-10 shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl">
-                <h3 className="mb-4 text-2xl font-black text-[#ff3b30]">
+                <h3 className="mb-4 font-display text-2xl font-black text-[#ff3b30]">
                   Educação Infantil
                 </h3>
                 <p className="mb-6 text-gray-600">
@@ -176,7 +176,7 @@ export default function PropostaPage() {
             {/* ENSINO FUNDAMENTAL */}
             <FadeIn delay={0.4}>
               <div className="group rounded-[2.5rem] bg-[#004aad] p-10 text-white shadow-xl">
-                <h3 className="mb-4 text-2xl font-black text-[#ff3b30]">
+                <h3 className="mb-4 font-display text-2xl font-black text-[#ff3b30]">
                   Ensino Fundamental
                 </h3>
                 <p className="mb-6 text-blue-100">
@@ -194,7 +194,7 @@ export default function PropostaPage() {
             {/* ENSINO MÉDIO */}
             <FadeIn delay={0.6}>
               <div className="group rounded-[2.5rem] border border-gray-50 bg-white p-10 shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl">
-                <h3 className="mb-4 text-2xl font-black text-[#ff3b30]">
+                <h3 className="mb-4 font-display text-2xl font-black text-[#ff3b30]">
                   Ensino Médio
                 </h3>
                 <p className="mb-6 text-gray-600">
@@ -235,7 +235,7 @@ export default function PropostaPage() {
                   <div className="mb-6 rounded-2xl bg-[#ff3b30]/10 p-4 text-[#ff3b30]">
                     <FlaskConical size={40} />
                   </div>
-                  <h3 className="mb-3 text-xl font-bold text-[#004aad]">
+                  <h3 className="mb-3 font-display text-xl font-bold text-[#004aad]">
                     Investigação Científica
                   </h3>
                   <p className="text-sm leading-relaxed text-gray-600">
@@ -251,7 +251,7 @@ export default function PropostaPage() {
                   <div className="mb-6 rounded-2xl bg-[#ff3b30]/10 p-4 text-[#ff3b30]">
                     <Cpu size={40} />
                   </div>
-                  <h3 className="mb-3 text-xl font-bold text-[#004aad]">
+                  <h3 className="mb-3 font-display text-xl font-bold text-[#004aad]">
                     Espaço Maker & Robótica
                   </h3>
                   <p className="text-sm leading-relaxed text-gray-600">
@@ -267,7 +267,7 @@ export default function PropostaPage() {
                   <div className="mb-6 rounded-2xl bg-[#ff3b30]/10 p-4 text-[#ff3b30]">
                     <Globe size={40} />
                   </div>
-                  <h3 className="mb-3 text-xl font-bold text-[#004aad]">
+                  <h3 className="mb-3 font-display text-xl font-bold text-[#004aad]">
                     Imersão Bilíngue
                   </h3>
                   <p className="text-sm leading-relaxed text-gray-600">
@@ -283,7 +283,7 @@ export default function PropostaPage() {
                   <div className="mb-6 rounded-2xl bg-[#ff3b30]/10 p-4 text-[#ff3b30]">
                     <Sprout size={40} />
                   </div>
-                  <h3 className="mb-3 text-xl font-bold text-[#004aad]">
+                  <h3 className="mb-3 font-display text-xl font-bold text-[#004aad]">
                     Educação Ambiental
                   </h3>
                   <p className="text-sm leading-relaxed text-gray-600">

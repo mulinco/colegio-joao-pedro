@@ -31,7 +31,7 @@ export default function DiferenciaisPage() {
               Por que escolher o {CLIENT_CONFIG.shortName}?
             </span>
           </FadeIn>
-          <h1 className="mb-6 text-5xl font-black text-primary md:text-7xl">
+          <h1 className="mb-6 font-display text-5xl font-black text-primary md:text-7xl">
             <SplitText text="DIFERENCIAIS" />
           </h1>
           <FadeIn delay={0.5}>
@@ -60,7 +60,7 @@ export default function DiferenciaisPage() {
                         <h3 className="text-sm font-black uppercase tracking-widest text-accent">
                           {item.subtitle}
                         </h3>
-                        <h2 className="text-3xl font-black text-primary md:text-4xl">
+                        <h2 className="font-display text-3xl font-black text-primary md:text-4xl">
                           {item.title}
                         </h2>
                       </div>

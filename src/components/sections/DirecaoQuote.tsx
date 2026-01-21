@@ -60,7 +60,7 @@ export default function DirecaoQuote() {
 
             <div className="text-center">
               {/* Texto da assinatura muito mais sutil */}
-              <h4 className="text-sm font-bold uppercase tracking-widest text-[#ff3b30]">
+              <h4 className="font-display text-sm font-bold uppercase tracking-widest text-[#ff3b30]">
                 — Ana Paula Souza
               </h4>
               <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-white/50">

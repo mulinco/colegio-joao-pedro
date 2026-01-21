@@ -47,12 +47,13 @@ export function LeadForm() {
     <section id="contato" className="bg-white py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-
           <FadeIn direction="right" distance={40}>
             <div className="space-y-6">
-              <h2 className="text-4xl font-black leading-tight text-[#004aad] md:text-5xl">
+              <h2 className="font-display text-4xl font-black leading-tight text-[#004aad] md:text-5xl">
                 O futuro do seu filho <br />
-                <span className="text-[#ff3b30]">começa aqui.</span>
+                <span className="font-display text-[#ff3b30]">
+                  começa aqui.
+                </span>
               </h2>
 
               <p className="max-w-md text-lg leading-relaxed text-gray-600">
@@ -87,7 +88,6 @@ export function LeadForm() {
           <FadeIn direction="left" distance={40} delay={0.2}>
             <div className="rounded-[2.5rem] border border-gray-100 bg-gray-50 p-8 shadow-inner md:p-10">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-
                 <div className="space-y-1">
                   <label className="ml-1 text-xs font-bold uppercase tracking-wider text-[#004aad]">
                     Nome do Responsável
