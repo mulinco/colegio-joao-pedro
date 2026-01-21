@@ -18,12 +18,13 @@ const iconMap = {
   Palette: <Palette size={32} className="text-accent" />,
   Leaf: <Leaf size={32} className="text-accent" />,
 };
+
 export default function DiferenciaisPage() {
   return (
-    // Usando bg-background que vem do seu config!
     <main className="min-h-screen bg-background pb-20 pt-32">
+      {/* PRIMEIRO CONTAINER: Apenas para Cabeçalho e Lista */}
       <div className="container mx-auto px-4">
-        {/* CABEÇALHO - Cores dinâmicas */}
+        {/* CABEÇALHO */}
         <section className="mb-24 text-center">
           <FadeIn direction="up">
             <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-bold uppercase tracking-widest text-primary">
@@ -41,36 +42,36 @@ export default function DiferenciaisPage() {
           </FadeIn>
         </section>
 
-        {/* LISTA DE DIFERENCIAIS AUTOMATIZADA */}
-        <div className="space-y-32">
+        {/* LISTA DE DIFERENCIAIS */}
+        <div className="mb-32 space-y-32">
           {CLIENT_CONFIG.content.diferenciais.map((item, index) => (
             <div
               key={index}
               className={`flex flex-col items-center gap-12 md:flex-row ${item.reverse ? "md:flex-row-reverse" : ""}`}
             >
-              {/* Texto */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1">
                 <FadeIn direction={item.reverse ? "left" : "right"}>
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-gray-100 bg-white shadow-sm">
-                      {iconMap[item.iconName as keyof typeof iconMap]}
+                  <div className="space-y-6 rounded-[3rem] border border-gray-50 bg-white p-10 shadow-xl md:p-14">
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-gray-100 bg-background shadow-sm">
+                        {iconMap[item.iconName as keyof typeof iconMap]}
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-black uppercase tracking-widest text-accent">
+                          {item.subtitle}
+                        </h3>
+                        <h2 className="text-3xl font-black text-primary md:text-4xl">
+                          {item.title}
+                        </h2>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-sm font-black uppercase tracking-widest text-accent">
-                        {item.subtitle}
-                      </h3>
-                      <h2 className="text-3xl font-black text-primary md:text-4xl">
-                        {item.title}
-                      </h2>
-                    </div>
+                    <p className="text-lg leading-relaxed text-gray-600">
+                      {item.description}
+                    </p>
                   </div>
-                  <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                    {item.description}
-                  </p>
                 </FadeIn>
               </div>
 
-              {/* Imagem */}
               <div className="flex-1">
                 <FadeIn direction={item.reverse ? "right" : "left"} delay={0.3}>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[3rem] border-4 border-white shadow-2xl">
@@ -86,24 +87,25 @@ export default function DiferenciaisPage() {
             </div>
           ))}
         </div>
-        {/* CITAÇÃO DA DIREÇÃO */}
-        <DirecaoQuote />
-        {/* CALL TO ACTION FINAL */}
-        <FinalCTA />
+      </div>
+      {/* FECHOU O CONTAINER AQUI */}
 
-        {/* VOLTAR */}
-        <div className="mt-32 text-center">
-          <Link
-            href="/"
-            className="group inline-flex items-center gap-2 font-bold text-primary transition-colors hover:text-accent"
-          >
-            <ArrowLeft
-              size={20}
-              className="transition-transform group-hover:-translate-x-2"
-            />
-            Voltar para a Home
-          </Link>
-        </div>
+      {/* COMPONENTES FORA DO CONTAINER PARA OCUPAREM 100% DA LARGURA */}
+      <DirecaoQuote />
+      <FinalCTA />
+
+      {/* SEGUNDO CONTAINER: Apenas para o link de Voltar */}
+      <div className="container mx-auto mt-32 px-4 text-center">
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-2 font-bold text-primary transition-colors hover:text-accent"
+        >
+          <ArrowLeft
+            size={20}
+            className="transition-transform group-hover:-translate-x-2"
+          />
+          Voltar para a Home
+        </Link>
       </div>
     </main>
   );

@@ -34,7 +34,7 @@ export function WhatsAppButton({
     };
   }, []);
 
-  const whatsappUrl = `https://wa.me/5521999999999?text=Olá! Gostaria de mais informações sobre o Colégio João Pedro.`;
+  const whatsappUrl = `https://wa.me/5521998382038?text=Olá! Gostaria de mais informações sobre o Colégio João Pedro.`;
 
   const handleConfirm = () => {
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
