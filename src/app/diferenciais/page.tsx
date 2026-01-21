@@ -6,19 +6,23 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { CLIENT_CONFIG } from "@/constants/config";
-import { Languages, Heart, Zap } from "lucide-react";
+import { Languages, Heart, Zap, Trophy, Palette, Leaf } from "lucide-react";
+import FinalCTA from "@/components/sections/FinalCTA";
+import DirecaoQuote from "@/components/sections/DirecaoQuote";
 
 const iconMap = {
   Languages: <Languages size={32} className="text-accent" />,
   Heart: <Heart size={32} className="text-accent" />,
   Zap: <Zap size={32} className="text-accent" />,
+  Trophy: <Trophy size={32} className="text-accent" />,
+  Palette: <Palette size={32} className="text-accent" />,
+  Leaf: <Leaf size={32} className="text-accent" />,
 };
 export default function DiferenciaisPage() {
   return (
     // Usando bg-background que vem do seu config!
     <main className="min-h-screen bg-background pb-20 pt-32">
       <div className="container mx-auto px-4">
-        
         {/* CABEÇALHO - Cores dinâmicas */}
         <section className="mb-24 text-center">
           <FadeIn direction="up">
@@ -31,7 +35,8 @@ export default function DiferenciaisPage() {
           </h1>
           <FadeIn delay={0.5}>
             <p className="mx-auto max-w-2xl text-lg text-gray-600">
-              Muito além do conteúdo acadêmico, oferecemos para os alunos do {CLIENT_CONFIG.name} uma formação completa.
+              Muito além do conteúdo acadêmico, oferecemos para os alunos do{" "}
+              {CLIENT_CONFIG.name} uma formação completa.
             </p>
           </FadeIn>
         </section>
@@ -81,6 +86,10 @@ export default function DiferenciaisPage() {
             </div>
           ))}
         </div>
+        {/* CITAÇÃO DA DIREÇÃO */}
+        <DirecaoQuote />
+        {/* CALL TO ACTION FINAL */}
+        <FinalCTA />
 
         {/* VOLTAR */}
         <div className="mt-32 text-center">
