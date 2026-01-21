@@ -16,24 +16,31 @@ export function WhatsAppButton({
 }: WhatsAppButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showBubble, setShowBubble] = useState(false);
 
-  // Solução para o erro de Cascading Renders:
-  // Usamos o setTimeout para tirar a atualização da 'fila' imediata do React
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
     }, 0);
-    return () => clearTimeout(timer);
+
+    // Mostra o balão de conversa após 3 segundos para atrair os pais
+    const bubbleTimer = setTimeout(() => {
+      setShowBubble(true);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(bubbleTimer);
+    };
   }, []);
 
-  const whatsappUrl = `https://wa.me/5521999999999?text=Olá! Gostaria de mais informações.`;
+  const whatsappUrl = `https://wa.me/5521999999999?text=Olá! Gostaria de mais informações sobre o Colégio João Pedro.`;
 
   const handleConfirm = () => {
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setIsOpen(false);
   };
 
-  // Tipagem explícita para evitar erros no motion.div
   const modalVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: 20 },
     visible: {
@@ -50,10 +57,15 @@ export function WhatsAppButton({
     },
   };
 
-  const overlayVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 },
+  const bubbleVariants: Variants = {
+    hidden: { opacity: 0, x: 20, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: { type: "spring", stiffness: 260, damping: 20 },
+    },
+    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2 } },
   };
 
   const modalContent = (
@@ -61,10 +73,9 @@ export function WhatsAppButton({
       {isOpen && (
         <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
           <motion.div
-            variants={overlayVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="absolute inset-0 bg-[#004aad]/60 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
@@ -91,11 +102,10 @@ export function WhatsAppButton({
               Iniciar Conversa?
             </h3>
             <p className="mb-8 leading-relaxed text-gray-600">
-              Você será levado ao WhatsApp oficial do <br />
+              Olá! 👋 Como podemos ajudar na educação do seu filho hoje? <br />
               <span className="font-bold text-[#004aad]">
                 Colégio João Pedro
               </span>
-              .
             </p>
 
             <div className="flex flex-col gap-3">
@@ -103,13 +113,7 @@ export function WhatsAppButton({
                 onClick={handleConfirm}
                 className="flex items-center justify-center gap-2 rounded-full bg-[#25d366] py-4 font-bold text-white transition-all hover:bg-[#1eb954] hover:shadow-lg hover:shadow-green-200 active:scale-95"
               >
-                Sim, iniciar agora <ExternalLink size={18} />
-              </button>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="py-2 text-sm font-bold text-gray-400 transition-colors hover:text-[#004aad]"
-              >
-                Agora não
+                Sim, falar agora <ExternalLink size={18} />
               </button>
             </div>
           </motion.div>
@@ -121,16 +125,44 @@ export function WhatsAppButton({
   return (
     <>
       {variant === "fixed" ? (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-[100] flex h-16 w-16 items-center justify-center rounded-full bg-[#25d366] text-white shadow-2xl transition-all hover:scale-110 active:scale-95"
-        >
-          <MessageCircle size={32} fill="currentColor" />
-          <span className="absolute right-0 top-0 flex h-4 w-4">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex h-4 w-4 rounded-full bg-[#ff3b30]"></span>
-          </span>
-        </button>
+        <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-4">
+          {/* Balão de Conversa (Tooltip) */}
+          <AnimatePresence>
+            {showBubble && !isOpen && (
+              <motion.div
+                variants={bubbleVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="relative mr-2 max-w-[240px] rounded-2xl rounded-br-none border border-gray-100 bg-white p-4 shadow-xl"
+              >
+                <button
+                  onClick={() => setShowBubble(false)}
+                  className="absolute -left-2 -top-2 rounded-full bg-white p-1 text-gray-400 shadow-md hover:text-[#ff3b30]"
+                >
+                  <X size={12} />
+                </button>
+                <p className="text-sm font-medium text-gray-700">
+                  Olá! 👋 Precisando de ajuda com a matrícula ou dúvidas?
+                </p>
+                {/* Triângulo do balão */}
+                <div className="absolute -bottom-2 right-0 h-4 w-4 bg-white [clip-path:polygon(100%_0,0_0,100%_100%)]"></div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Botão Flutuante */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#25d366] text-white shadow-2xl transition-all hover:scale-110 active:scale-95"
+          >
+            <MessageCircle size={32} fill="currentColor" />
+            <span className="absolute right-0 top-0 flex h-4 w-4">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex h-4 w-4 rounded-full bg-[#ff3b30]"></span>
+            </span>
+          </button>
+        </div>
       ) : (
         <button
           onClick={() => setIsOpen(true)}
@@ -141,7 +173,6 @@ export function WhatsAppButton({
         </button>
       )}
 
-      {/* Renderização via Portal após a montagem segura no cliente */}
       {mounted && ReactDOM.createPortal(modalContent, document.body)}
     </>
   );

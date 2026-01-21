@@ -25,6 +25,7 @@ export function Header() {
     { text: "A Escola", link: isHome ? "#sobre" : "/#sobre" },
     { text: "Proposta", link: "/proposta" },
     { text: "Diferenciais", link: "/diferenciais" },
+    { text: "Infraestrutura", link: "/estrutura" },
     { text: "Dúvidas", link: "/faq" },
   ];
 
