@@ -21,7 +21,7 @@ const iconMap = {
 
 export default function DiferenciaisPage() {
   return (
-    <main className="min-h-screen bg-background pb-20 pt-32">
+    <main className="min-h-screen bg-[#fffcf5] pb-20 pt-32">
       {/* PRIMEIRO CONTAINER: Apenas para Cabeçalho e Lista */}
       <div className="container mx-auto px-4">
         {/* CABEÇALHO */}

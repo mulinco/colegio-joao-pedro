@@ -10,6 +10,7 @@ import Image from "next/image";
 import { CounterItem } from "@/components/ui/CounterItem";
 import { FlaskConical, Cpu, Globe, Sprout } from "lucide-react";
 import { CLIENT_CONFIG } from "@/constants/config";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function PropostaPage() {
   const pilares = [
@@ -294,20 +295,22 @@ export default function PropostaPage() {
             </div>
           </div>
         </section>
+      </div>
 
-        {/* VOLTAR */}
-        <div className="mt-16 text-center">
-          <Link
-            href="/"
-            className="group inline-flex items-center gap-2 font-bold text-[#004aad] transition-colors hover:text-[#ff3b30]"
-          >
-            <ArrowLeft
-              size={20}
-              className="transition-transform group-hover:-translate-x-2"
-            />
-            Voltar para a página inicial
-          </Link>
-        </div>
+      <FinalCTA />
+
+      {/* VOLTAR */}
+      <div className="mt-16 text-center">
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-2 font-bold text-[#004aad] transition-colors hover:text-[#ff3b30]"
+        >
+          <ArrowLeft
+            size={20}
+            className="transition-transform group-hover:-translate-x-2"
+          />
+          Voltar para a página inicial
+        </Link>
       </div>
     </main>
   );

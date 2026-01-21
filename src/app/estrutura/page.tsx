@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Microscope, Trophy, BookOpen, Coffee } from "lucide-react";
 import { CLIENT_CONFIG } from "@/constants/config";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 // Definição das categorias e fotos
 const CATEGORIES = [
@@ -143,20 +144,24 @@ export default function EstruturaPage() {
             </FadeIn>
           ))}
         </div>
+      </div>
 
-        {/* BOTÃO DE VOLTA */}
-        <div className="mt-20 text-center">
-          <Link
-            href="/"
-            className="group inline-flex items-center gap-2 font-bold text-[#004aad] transition-colors hover:text-[#ff3b30]"
-          >
-            <ArrowLeft
-              size={20}
-              className="transition-transform group-hover:-translate-x-2"
-            />
-            Voltar para a Home
-          </Link>
-        </div>
+      {/* CTA FINAL */}
+      <FadeIn direction="up" delay={0.7} className="mt-20">
+        <FinalCTA />
+      </FadeIn>
+      {/* BOTÃO DE VOLTA */}
+      <div className="mt-20 text-center">
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-2 font-bold text-[#004aad] transition-colors hover:text-[#ff3b30]"
+        >
+          <ArrowLeft
+            size={20}
+            className="transition-transform group-hover:-translate-x-2"
+          />
+          Voltar para a Home
+        </Link>
       </div>
     </main>
   );
