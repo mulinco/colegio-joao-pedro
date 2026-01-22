@@ -7,6 +7,12 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+body {
+  /* O @apply usa a cor que você definiu no tailwind.config.ts */
+  @apply bg-background text-gray-900 antialiased;
+}
+
 /* Estilização da Scrollbar para Chrome, Safari e Edge */
 ::-webkit-scrollbar {
   width: 12px;
@@ -34,4 +40,9 @@ html {
 * {
   scrollbar-width: thin;
   scrollbar-color: #004aad #fffcf5;
+}
+
+::selection {
+  background-color: #004aad; /* Seu Azul Primary */
+  color: #fff4d7; /* Seu Bege Background */
 }

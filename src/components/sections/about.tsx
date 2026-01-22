@@ -4,7 +4,7 @@ import FadeIn from "@/components/ui/FadeIn"; // Importando o componente
 
 export function About() {
   return (
-    <section id="sobre" className="overflow-hidden bg-white py-20">
+    <section id="sobre" className="overflow-hidden bg-transparent py-20">
       <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 md:grid-cols-2">
         {/* Lado Esquerdo: Imagem entrando pela esquerda */}
         <FadeIn direction="right" distance={100} duration={1.2}>

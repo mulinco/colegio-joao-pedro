@@ -43,7 +43,7 @@ export default function FAQPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#fffcf5] pb-20 pt-32">
+    <main className="min-h-screen bg-transparent pb-20 pt-32">
       <div className="container mx-auto max-w-3xl px-4">
         {/* CABEÇALHO */}
         <section className="mb-16 text-center">

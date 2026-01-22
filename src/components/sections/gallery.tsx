@@ -54,7 +54,7 @@ export function Gallery() {
   return (
     <section
       id="galeria"
-      className="relative w-full overflow-hidden bg-[#fffdf5] py-24 md:py-32"
+      className="relative w-full overflow-hidden bg-transparent py-24 md:py-32"
     >
       {/* Pattern de fundo suave */}
       <div

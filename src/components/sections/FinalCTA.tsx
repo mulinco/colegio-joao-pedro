@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { LeadForm } from "./lead-form"; // Importando sua função exportada
+import { LeadForm } from "../shared/enrollment/lead-form"; // Importando sua função exportada
 
 gsap.registerPlugin(ScrollTrigger);
 

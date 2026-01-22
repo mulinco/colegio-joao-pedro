@@ -37,7 +37,7 @@ export default function PropostaPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#fffcf5] pb-20 pt-32">
+    <main className="min-h-screen bg-transparent pb-20 pt-32">
       <div className="container mx-auto px-4">
         {/* HERO DA PÁGINA */}
         <section className="mb-20 text-center">
@@ -135,7 +135,7 @@ export default function PropostaPage() {
         </section>
 
         {/* SEÇÃO DE NÚMEROS (CONTADORES) */}
-        <section className="mb-20 border-y border-gray-100 bg-white py-16">
+        <section className="mb-20 rounded-[2.5rem] border-y border-gray-100 bg-white py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               <CounterItem value={25} suffix="+" label="Anos de História" />
@@ -212,7 +212,7 @@ export default function PropostaPage() {
         </section>
 
         {/* SEÇÃO: DIFERENCIAIS TÉCNICOS */}
-        <section className="bg-[#fffcf5] py-20">
+        <section className="bg-transparent py-20">
           <div className="container mx-auto px-4">
             <FadeIn direction="up">
               <div className="mb-16 text-center">

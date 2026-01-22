@@ -8,7 +8,7 @@ import SplitText from "@/components/ui/SplitText";
 
 export default function ThanksPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#fffcf5] px-4 text-center">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-transparent px-4 text-center">
       {/* Ícone de Sucesso Animado */}
       <FadeIn direction="up" distance={30}>
         <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-green-100 text-[#25d366] shadow-inner">

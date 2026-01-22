@@ -6,15 +6,27 @@ export const CLIENT_CONFIG = {
   shortName: "CJP",
 
   colors: {
+    // Cor de fundo geral (o bege mais amarelado que você escolheu)
     background: "#fff4d7",
+
+    // Escala tonal da cor principal (Azul)
     primary: {
       DEFAULT: "#004aad",
       light: "#187ad3",
       lighter: "#2091e5",
     },
+
+    // Escala tonal do destaque (Vermelho)
     accent: {
-      DEFAULT: "#ff201e",
+      DEFAULT: "#ff3b30",
       light: "#ff4848",
+    },
+
+    // Cores da Marca (Brand Assets)
+    brand: {
+      bege: "#FEF5E1",
+      azul: "#004aad",
+      vermelho: "#ff3b30",
     },
   },
 
