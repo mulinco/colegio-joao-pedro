@@ -19,8 +19,11 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Colégio João Pedro",
-  description: "Criando um mundo de possibilidades",
+  title: {
+    template: "%s | Colégio João Pedro",
+    default: "Colégio João Pedro | Ensino de Excelência",
+  },
+  description: "Ambiente de acolhimento e aprendizado.",
 };
 
 export default function RootLayout({
@@ -31,14 +34,16 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${karantina.variable} ${jakarta.variable} overflow-x-hidden bg-background font-body text-primary antialiased md:overflow-x-visible`}
+        className={`${karantina.variable} ${jakarta.variable} overflow-x-hidden font-body text-primary antialiased md:overflow-x-visible`}
       >
-        {children}
-        <ScrollProgress />
-        <Header />
-        <WhatsAppButton />
-        <Footer />
-        <BackToTop />
+        <main className="relative z-10">
+          {children}
+          <ScrollProgress />
+          <Header />
+          <WhatsAppButton />
+          <Footer />
+          <BackToTop />
+        </main>
       </body>
     </html>
   );
