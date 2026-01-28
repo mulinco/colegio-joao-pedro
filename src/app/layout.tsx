@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   description: "Ambiente de acolhimento e aprendizado.",
 };
 
+// app/layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -36,14 +37,8 @@ export default function RootLayout({
       <body
         className={`${karantina.variable} ${jakarta.variable} overflow-x-hidden font-body text-primary antialiased md:overflow-x-visible`}
       >
-        <main className="relative z-10">
-          {children}
-          <ScrollProgress />
-          <Header />
-          <WhatsAppButton />
-          <Footer />
-          <BackToTop />
-        </main>
+        {/* Aqui NÃO vai Header nem Footer */}
+        <main className="relative z-10">{children}</main>
       </body>
     </html>
   );
