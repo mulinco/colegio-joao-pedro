@@ -6,7 +6,7 @@ import FInalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#fffcf5]">
+    <div className="flex min-h-screen flex-col bg-transparent">
       <Hero />
 
       {/* 1. CONTÊINER PAI (A SOMBRA): 

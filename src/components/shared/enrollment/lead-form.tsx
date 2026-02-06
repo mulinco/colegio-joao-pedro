@@ -171,10 +171,10 @@ export function LeadForm() {
                     {...register("grade")}
                     className={`w-full cursor-pointer appearance-none rounded-2xl border bg-white/90 px-5 py-3.5 outline-none focus:ring-2 focus:ring-[#004aad]/10 ${errors.grade ? "border-red-500" : "border-gray-100"}`}
                   >
-                    <option value="">Selecione...</option>
+                    <option value="">Clique para Selecionar...</option>
                     <option value="infantil">Ed. Infantil</option>
-                    <option value="fundamental1">Fund. I</option>
-                    <option value="fundamental2">Fund. II</option>
+                    <option value="fundamental1">Fundamental I</option>
+                    <option value="fundamental2">Fundamental II</option>
                     <option value="medio">Ensino Médio</option>
                   </select>
                   {errors.grade && (

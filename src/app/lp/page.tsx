@@ -22,8 +22,8 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#fffdf0] font-body text-slate-900">
-      {/* Camada: Textura de Papel - Colocada aqui para cobrir tudo */}
+    <div className="relative min-h-screen overflow-x-hidden bg-transparent font-body text-slate-900">
+      {/* Camada: Textura de Papel */}
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-20 mix-blend-multiply"
         style={{

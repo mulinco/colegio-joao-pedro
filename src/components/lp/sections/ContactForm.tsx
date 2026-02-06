@@ -28,20 +28,23 @@ export const ContactForm = () => {
           <div className="absolute right-0 top-0 -mr-20 -mt-20 h-64 w-64 rounded-full bg-[#ff3b30] opacity-10 blur-3xl" />
 
           <div className="relative z-10 grid items-center gap-16 lg:grid-cols-2">
-            {/* LADO ESQUERDO */}
-            <div className="space-y-8">
-              <div className="space-y-4">
+            {/* LADO ESQUERDO - AGORA CENTRALIZADO */}
+            <div className="flex flex-col items-center space-y-8 text-center">
+              <div className="flex flex-col items-center space-y-4">
                 <h2 className="font-display text-5xl font-black uppercase leading-[0.85] md:text-7xl">
                   AGENDE SUA <br />{" "}
                   <span className="text-[#ff3b30]">VISITA GUIADA.</span>
                 </h2>
-                <p className="max-w-md font-body text-xl font-medium italic leading-relaxed text-blue-100">
+                {/* Adicionado mx-auto para centralizar o bloco do parágrafo e text-center para o texto */}
+                <p className="mx-auto max-w-md font-body text-xl font-medium italic leading-relaxed text-blue-100">
                   &quot;Deixe seus dados e receba nosso plano pedagógico
                   completo.&quot;
                 </p>
               </div>
+
               <div className="space-y-6 pt-4">
-                <div className="flex items-center gap-4">
+                {/* Adicionado justify-center para centralizar o ícone e o número na linha */}
+                <div className="flex items-center justify-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ff3b30]">
                     <Phone size={24} />
                   </div>
@@ -144,7 +147,7 @@ export const ContactForm = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex w-full items-center justify-center gap-2 rounded-full bg-[#ff3b30] py-5 text-xl font-black text-white transition-all active:scale-95 disabled:opacity-70"
+                        className="flex w-full items-center justify-center gap-2 rounded-full bg-[#ff3b30] px-6 py-4 text-base font-black text-white transition-all active:scale-95 disabled:opacity-70 sm:text-lg md:px-8 md:py-5 md:text-xl"
                       >
                         {isSubmitting ? (
                           <Loader2 className="animate-spin" size={24} />

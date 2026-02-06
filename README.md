@@ -1,16 +1,22 @@
-# 🏫 Colégio João Pedro - Landing Page Profissional
+# 🏫 Colégio João Pedro - Ecossistema Digital (Institucional + LP)
 
 ![Vercel Status](https://img.shields.io/badge/Vercel-Deployed-success?style=for-the-badge&logo=vercel)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 
-Esta é uma Landing Page institucional de alto nível desenvolvida para o **Colégio João Pedro**, focada em converter visitantes em leads através de uma experiência visual impactante e performance otimizada.
+Este projeto evoluiu de uma simples Landing Page para uma solução digital completa para o Colégio João Pedro. Ele combina um site institucional focado em branding com uma Landing Page (`/lp`) de alta conversão, otimizada para capturar leads de novos alunos.
 
 ---
 
-## 📸 Preview do Projeto
+# 🚀 O Desafio: De Design Estático a Produto Funcional
 
-![Preview da Landing Page](public\images\preview-cjp.png)
+O maior diferencial deste projeto foi a tradução da identidade visual solar desenvolvida pela Carol no Behance para uma interface web viva. Como desenvolvedora com noções de design, foquei em manter a hierarquia visual, tipografia e o conceito de "caderno" em cada pixel.
+
+---
+
+## 📸 Visualização do Ecossistema
+
+![Preview Institucional](public\images\preview-cjp.png)
 
 > **Status do Projeto:** Concluído e Otimizado para Performance 🚀
 
@@ -55,7 +61,7 @@ O projeto foi desenvolvido com base no estudo de branding e identidade visual di
 
 1.  Clone o repositório:
     ```bash
-    git clone [https://github.com/seu-usuario/colegio-joao-pedro.git](https://github.com/seu-usuario/colegio-joao-pedro.git)
+    git clone https://github.com/mulinco/colegio-joao-pedro.git
     ```
 2.  Instale as dependências:
     ```bash
@@ -77,7 +83,7 @@ O projeto foi desenvolvido com base no estudo de branding e identidade visual di
 
 ## 🗺️ Roadmap de Melhorias
 
-- [ ] Implementação de contadores animados para estatísticas do colégio.
+- [x] Implementação de contadores animados para estatísticas do colégio.
 - [ ] Integração do formulário com serviço de e-mail ou banco de dados.
-- [ ] Botão flutuante de WhatsApp com animação de pulsação.
-- [ ] Página de "Obrigado" personalizada após o envio do lead.
+- [x] Botão flutuante de WhatsApp com animação de pulsação.
+- [x] Página de "Obrigado" personalizada após o envio do lead.
