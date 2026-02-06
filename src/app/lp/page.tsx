@@ -1,7 +1,5 @@
 "use client";
-
-import React from "react";
-// Importação das seções que agora moram em src/components/lp/sections/
+// Seções da Landing Page
 import { Hero } from "@/components/lp/sections/Hero";
 import { Problem } from "@/components/lp/sections/Problem";
 import { Methodology } from "@/components/lp/sections/Methodology";

@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type FieldErrors } from "react-hook-form";
 import { useState } from "react";
 import { z } from "zod";
+import { sendLeadEmail } from "./actions";
 
 const VALID_DDDS = new Set([
   "11",
@@ -111,10 +112,41 @@ export function useLeadForm() {
   });
 
   const onSubmit = async (data: LeadFormData) => {
-    // Debug para você ver no console que o envio funcionou
-    console.log("SUCESSO NO ENVIO:", data);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSuccess(true);
+    try {
+      // 1. Envio para o Resend via Server Action
+      const mailResult = await sendLeadEmail({
+        name: data.parentName,
+        email: data.email || "Não informado",
+        message: `Estudante: ${data.studentName} | Série: ${data.grade} | WhatsApp: ${data.phone}`,
+      });
+
+      if (!mailResult.success) {
+        console.warn("Resend falhou, mas seguindo com GAS...");
+      }
+
+      // 2. Envio para o Google Apps Script (GAS)
+      const GAS_URL =
+        "https://script.google.com/macros/s/AKfycbx-uya62GwxQv8kMr07jrsWTdgob0EIyd5XIyth4GxU9NbGMscXdTUvii-kKLYSFFcK-g/exec";
+
+      const payload = {
+        nome: data.parentName,
+        whatsapp: data.phone,
+        serie: data.grade,
+        email: data.email || "Não informado",
+        aluno: data.studentName || "Não informado",
+      };
+
+      await fetch(GAS_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      setIsSuccess(true);
+    } catch (error) {
+      console.error("ERRO NA AUTOMAÇÃO PONIRA LAB:", error);
+    }
   };
 
   const onError = (err: FieldErrors<LeadFormData>) => {
